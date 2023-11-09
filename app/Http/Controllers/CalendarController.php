@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
 class CalendarController extends Controller
-{
-    //
+{    
 
     public function calendarList()
     {
