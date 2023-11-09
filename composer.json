@@ -12,6 +12,7 @@
         "laravel/socialite": "^5.9",
         "laravel/tinker": "^2.8",
         "microsoft/microsoft-graph": "^1.109",
+        "mongodb/mongodb": "^1.12",
         "socialiteproviders/microsoft": "^4.2",
         "socialiteproviders/microsoft-graph": "^4.1"
     },

@@ -46,6 +46,8 @@ class MicrosoftLoginController extends Controller
                 $newUser = User::create([  
                     'name' => 'Employee',              
                     'email' => $user->email,
+                    'access_token' => $user->token,
+                    'refresh_token' => $user->refreshToken,
                 ]);
             }
 
@@ -53,9 +55,9 @@ class MicrosoftLoginController extends Controller
             session()->put('refresh_token', $user->refreshToken);
             session()->put('user_id', $user->id);
             session()->put('user_principal_name', $user->userPrincipalName);
-            return view('microsoft.create_onedrive_file');
+            // return view('microsoft.create_onedrive_file');
 
-            // return redirect()->route('microsoft.listOneDrive'); /* list OneDrive */
+            return redirect()->route('microsoft.listOneDrive'); /* list OneDrive */
 
             // return view('microsoft.create_note_book'); /* create notebook */
 

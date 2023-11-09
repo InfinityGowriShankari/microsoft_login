@@ -11,7 +11,10 @@ class OneDriveController extends Controller
     {
         $client = new Client();
          
-        $accessToken = 'EwCIA8l6BAAUAOyDv0l6PcCVu89kmzvqZmkWABkAAUzH4Y081MKfzwCFW0ZRhW31LK//bDZKSWsplWWX3Q0SwcfvWdDgBLnUPbCVkFS8DuB4ebKF2I052iCj6gqOvG7UlE2pKxrqe/dKa66pv8b55YMUeF6ktmaKWafd0PqQ/93ngUre7P9ipzkKxn8zcrZylTylW6aF1PwkuKtbScLJjS5t4PRaX/yVYne0wHTs7QvUAvX5SZB8QYDFQ8fA1q/qGy7M5RLQ7uLIVIGONwYPK6yQ7g6nW7N+DBIVkzzXE1VZxI33OFS9XkaTgdF7L4oJyikhrNCEF6eReixQrj/3Yl1y4gteQuxfG5kcYuSrKOIVpslcChWYHcep01VXkogDZgAACDFN0P6OgnU1WALf1U7eTezDWCS5Y0Kt9U8HMBipUlLa07gOpeZUg3SqIwd3TXCz5npjmRaTy1QA/IblmYc++WxWC3IqzXXIBN9WQP16vkdK6N9dMaaU4sZQKUOS147HtMyGLwy6keqpVjiMx79n5zVcO3YCXTLqXMR/xZw+xtrsnwUcPV1fwNxg5QBrpPDXtR/lpNKF9TKrRdIeMuD9ak6oH+DPGGv2C34h/YqE/0uXVJadIqR2jGHuhjFqY/4zqaStzkYdWOYrbsPLQ1jOm7rAMbRm05Pjt/s3bVWcbij64PXU9GOiA9MEycMCG0uJKeYwQZNCop2mPREt0bNUcZPllVFJaBhZtd9+TIewnKvoiEvFP4nccMaccyOC209Bvm0oE3bs7FaBrdL7OaeemSddINpKKj8rSd0GPsv6dKx7gJijUXnvRx+32IXk9H1GI3Lbq8L9gqcbEUCxLN3dm/3uyvJQKPUVN1fjXcuKJmM4TNE4fGn0RHSPKU7JrMVLCPSF4PvMqvmmqp/acR7GVYKwy80wDnQZClw40mldS3OSUnRh78/Hwx+nPMPWQZg7IhzRgaCCL3hiadz+yVKQDlXydEoOpW5W1YMtbe2/wAhj64PvbCug/BKhjb60rEOFGMxoJc5W6H6dMJVfSdRms8iRhIuqZBwSzIJ8Fiz6+q1n57wp4zgO7kAKkDWPAszoYyt4/Hr/Um3ayUz2Bvw923tNRyG+g6xP2u2vCWhqmxPVzuK62RzcQczuxy64kwYF3KktyZBH6cQa0HoMPFLsu6ipF6y2Py1exRGT1L1n8FWePsmjAg==';
+        $accessToken = $request->session()->get('access_token');        
+        // $accessToken = $this->getAccessToken();
+        dd($accessToken);
+        // $accessToken = 'EwCgA8l6BAAUAOyDv0l6PcCVu89kmzvqZmkWABkAAZH1iVJmhW0seXa3Bgbdk3+3+3BO1WICF1fmR3CuuaCn6GSmRd/14lplq5K5+rsXLeG0newbRcbityzeuuncV/vtJaMFZtIycMv0ZRiURagxnCnbpPKX9Nm+d/0OyQzPX/86kvnyYCcmPjQ0U3SX/SSogihGcLEXTUCvn5Pba3FHXl7E6f5AjbVzR9GiI5hhq2HRVDH1dyaOMFLu1I9OCHPQe1wHUDmtF87VfNobZ5JJ+x8T758myZiEQOcEwUEf8QD44WPAnaLsMmh/E/Eg9qyTDaixVraV0aYdvv/wfetkcgsI6X7FgBvd9XMXr0BVEGYyks3ppPFktVVDKXFo85UDZgAACGJi0A7HwGz1cAJYoSNWIzyVH3tD/Xn4iLyQ5Tbfc/dCUnmm/2oHQzFByd5u3hk8/ELsu4rEn1+I1ajkmCS1F/4qk2JmV15eYgktNFUN3hASoOtzbsKTYsl4gFaFzrGzLHoFOWDeeJf3GtN3ltbrb0HgS7+S+WrlS/qXkQgFN9/aSd2NDKgL1Uqf9JsOR5uvV39WcKClZqvIS4LU6Fd9F8WKYCLfzlOyDt0JqYpQJBMGCzwgKLWgxV1fQVg9krpuLJjO3uvOVLY8La+PW73LfdKNuQnOgJFALZ8EC1+HZ84mm5YiN0g01sv/n+MIUgfh/VPIkG8JUl8O3ydHr+Ezvo8FvOFsTbCR1OiFfBrO0GGq8gxwdQSJUFlsEujc1zlPHyjOiR/krG2mt8mEfctEM6Qtl0FwjY6BCJm0ZBS6Ahl6vy+PGPDNpibRgrCeZ3zFdJeVC/G1udle70T+PGPtpU+cOkltD2w7tScseoJeK9Wf2HsNqta7cC2Pb/rJaB2LHyTnqA7kcXSJFNAN0RAlCFC7+h74uCksYSx4nn2dBH5/qEdQd9mZXewM32IoYIHx6iCDj3zTThvDpN2B+ZJa3aYCBQUqZVeMXXlqML9w+pyORzX/FioKtPwMlKwKAOEDinXZM+Ee+jCOPCDB0gfElEMqaoVB0Nn8Qy8VuGbTnDffne6RcrhnKOPaVADb2Mgbsx6gjvGgDMutTiP2AaqnPBPcXTAng9DjTUzsxdeQeEd9MDMD+YFktdLYqDIy4PE5GyvrsjPgueROKLSw9rtzUqP9HWA/uDrh5OaDwlb+KYLbKbddrPOeoatVbkAKfFl1rYbTln7UqyuRYvm/Ag==';
 
         $response = $client->request('GET', 'https://graph.microsoft.com/v1.0/me/drive/root/children', [
             'headers' => [
@@ -21,6 +24,27 @@ class OneDriveController extends Controller
         $data = json_decode($response->getBody());
 dd($data);
         // return view('onenote.pages', ['pages' => $data]);
+    }
+
+    public function getAccessToken()
+    {        
+        $clientId = env('MICROSOFT_CLIENT_ID');        
+
+        $input = [
+            'response_type' => 'token',
+            'client_id' => $clientId,
+            'scope' => "onedrive.readwrite offline_access",
+            'redirect_uri' => 'https://login.live.com/oauth20_desktop.srf',
+        ];
+  
+        $client = new Client();
+        $response = $client->request('GET', "https://login.live.com/oauth20_authorize.srf", ['form_params' => $input]);
+     
+        $statusCode = $response->getStatusCode();
+        $responseBody = json_decode($response->getBody(), true);
+dd($responseBody);
+        $this->accessToken = $responseBody['access_token'];
+        return $responseBody;
     }
 
     public function createFile(Request $request)

@@ -6,6 +6,7 @@ use App\Http\Controllers\MicrosoftGraphController;
 use App\Http\Controllers\NoteBookController;
 use App\Http\Controllers\OneDriveController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\SSOController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,6 @@ Route::get('microsoft/me/onedrive', [OneDriveController::class, 'listOneDrive'])
 Route::post('microsoft/onenote/create_file', [OneDriveController::class, 'createFile'])->name('microsoft.create_onedrive_file');
 
 Route::get('calendar/list', [CalendarController::class, 'calendarList'])->name('microsoft.calendar_list');
+
+Route::get('/microsoft/sso_process', [SSOController::class, 'ssoUser'])->name('microsoft.sso_user');
+Route::any('/microsoft/sso/callback', [SSOController::class, 'handleSSOCallback'])->name('microsoft.redirect');

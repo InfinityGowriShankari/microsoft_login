@@ -18,6 +18,12 @@
     <body class="antialiased">
 
         <div class="microsoft-buttons">
+            <a href="{{ route('microsoft.sso_user') }}">
+                <button style="background-color: #C002FF; color: #fff; padding: 10px 20px; border: 1px solid #00ffff; border-radius: 4px; font-weight: bold;">
+                    SSO Process
+                </button>
+            </a>
+
             <a href="{{ route('microsoft.calendar_list') }}">
                 <button style="background-color: #C001FF; color: #fff; padding: 10px 20px; border: 1px solid #00ffff; border-radius: 4px; font-weight: bold;">
                     Calendar List
